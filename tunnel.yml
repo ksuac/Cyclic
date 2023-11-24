@@ -1,0 +1,12 @@
+
+  tunnel: dba179ce-dc99-454f-9ac7-701633a1bdbd
+  credentials-file: ./tunnel.json
+  protocol: http2
+  
+  ingress:
+    - hostname: cdn9.chuyi.link
+      service: http://localhost:8001
+      originRequest:
+        noTLSVerify: true
+    - service: http_status:404
+  
