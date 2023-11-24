@@ -8,7 +8,7 @@ const NEZHA_PORT = process.env.NEZHA_PORT || '5555';
 const NEZHA_KEY = process.env.NEZHA_KEY || 'tYnqW3wQnjGO3fVVRn';
 const ARGO_DOMAIN = process.env.ARGO_DOMAIN || 'cdn9.chuyi.link';
 const CFIP = process.env.CFIP || 'skk.moe';
-const NAME = process.env.NAME || 'Cyclic';
+const NAME = process.env.NAME || 'hug';
 
 // 根路由
 app.get("/", function(req, res) {
