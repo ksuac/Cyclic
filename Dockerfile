@@ -9,7 +9,7 @@ EXPOSE 3000
 USER 10008
 
 RUN apt-get update && apt upgrade &&\
-    apt install --no-cache openssl curl gcompat iproute2 coreutils &&\
+    apt install --no-cache openssl curl &&\
     addgroup --gid 10008 choreo &&\
     adduser --disabled-password  --no-create-home --uid 10008 --ingroup choreo choreouser &&\
     usermod -aG sudo choreouser &&\
