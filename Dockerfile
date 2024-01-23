@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:slim
 
 WORKDIR /home/choreouser
 
@@ -8,8 +8,8 @@ EXPOSE 3000
 
 USER 10008
 
-RUN apk update && apk upgrade &&\
-    apk add --no-cache openssl curl gcompat iproute2 coreutils &&\
+RUN apt-get update && apt upgrade &&\
+    apt install --no-cache openssl curl gcompat iproute2 coreutils &&\
     addgroup --gid 10008 choreo &&\
     adduser --disabled-password  --no-create-home --uid 10008 --ingroup choreo choreouser &&\
     usermod -aG sudo choreouser &&\
