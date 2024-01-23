@@ -1,19 +1,23 @@
-FROM node:slim
+FROM node:latest
 
 WORKDIR /home/choreouser
 
-COPY files/* /home/choreouser/
-
 EXPOSE 3000
 
-USER 10008
+COPY files/* /home/choreouser/
 
-RUN apt-get update && apt upgrade &&\
-    apt install --no-cache openssl curl &&\
+ENV PM2_HOME=/tmp
+
+RUN apt-get update &&\
+    apt install --only-upgrade linux-libc-dev &&\
+    apt-get install -y iproute2 vim netcat-openbsd &&\
+    npm install -g pm2 &&\
     addgroup --gid 10008 choreo &&\
     adduser --disabled-password  --no-create-home --uid 10008 --ingroup choreo choreouser &&\
     usermod -aG sudo choreouser &&\
-    chmod +x index.js server swith web tunnel.yml tunnel.json &&\
+    chmod +x index.js start.sh server &&\
     npm install
 
-CMD ["node", "index.js"]
+CMD [ "node", "index.js" ]
+
+USER 10008
