@@ -31,10 +31,6 @@
                     {
                         "path":"/trojan",
                         "dest":3004
-                    },
-                    {
-                        "path":"/shadowsocks",
-                        "dest":3005
                     }
                 ]
             },
@@ -133,35 +129,6 @@
                 "security":"none",
                 "wsSettings":{
                     "path":"/trojan"
-                }
-            },
-            "sniffing":{
-                "enabled":true,
-                "destOverride":[
-                    "http",
-                    "tls",
-                    "quic"
-                ],
-                "metadataOnly":false
-            }
-        },
-        {
-            "port":3005,
-            "listen":"127.0.0.1",
-            "protocol":"shadowsocks",
-            "settings":{
-                "clients":[
-                    {
-                        "method":"chacha20-ietf-poly1305",
-                        "password":"986e0d08-b275-4dd3-9e75-f3094b36fa2a"
-                    }
-                ],
-                "decryption":"none"
-            },
-            "streamSettings":{
-                "network":"ws",
-                "wsSettings":{
-                    "path":"/shadowsocks"
                 }
             },
             "sniffing":{
